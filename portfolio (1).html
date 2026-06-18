@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafi Al Imran | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --green:   #3d6b52;
+    --green2:  #2a4d39;
+    --cream:   #fdfaf5;
+    --sand:    #f0ebe0;
+    --ink:     #0f1a14;
+    --muted:   #6b7a70;
+    --line:    #d4cfc6;
+    --accent:  #b85c2a;
+    --white:   #ffffff;
+    --sage-lt: #c8ddd0;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); line-height: 1.7; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--ink);
+    padding: 0 2rem;
+    display: flex; justify-content: space-between; align-items: center;
+    height: 54px; gap: 1rem;
+  }
+  .nav-name { color: white; font-family: 'DM Serif Display', serif; font-size: 1.15rem; text-decoration: none; }
+  .nav-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .nav-links a {
+    color: var(--sage-lt); text-decoration: none;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
+    text-transform: uppercase; transition: color 0.2s; white-space: nowrap;
+  }
+  .nav-links a:hover { color: white; }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--green) 0%, var(--green2) 100%);
+    color: white; padding: 4.5rem 2rem 3.5rem; text-align: center;
+  }
+  .hero-eyebrow {
+    font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
+    opacity: 0.7; margin-bottom: 1rem; font-weight: 500;
+  }
+  .hero h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 6vw, 3.8rem); margin-bottom: 0.6rem; }
+  .hero-sub { font-size: 1rem; opacity: 0.78; max-width: 520px; margin: 0 auto 1.75rem; }
+  .hero-tags { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; }
+  .hero-tag {
+    background: rgba(255,255,255,0.15); color: white;
+    padding: 0.3rem 0.9rem; border-radius: 100px;
+    font-size: 0.74rem; font-weight: 500;
+  }
+
+  /* ── ENTRY GATE CARDS ── */
+  .gate {
+    max-width: 960px; margin: 0 auto;
+    padding: 3.5rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  .gate-card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 14px; padding: 2rem 1.75rem;
+    text-decoration: none; color: var(--ink);
+    display: flex; flex-direction: column; gap: 0.75rem;
+    transition: box-shadow 0.22s, transform 0.22s;
+    cursor: pointer;
+  }
+  .gate-card:hover { box-shadow: 0 12px 32px rgba(0,0,0,0.1); transform: translateY(-4px); }
+  .gate-emoji { font-size: 2.2rem; }
+  .gate-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; color: var(--ink); }
+  .gate-desc { font-size: 0.84rem; color: var(--muted); line-height: 1.6; }
+  .gate-arrow {
+    margin-top: auto; font-size: 0.78rem; font-weight: 600;
+    color: var(--green); letter-spacing: 0.04em;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--line); margin: 0; }
+
+  /* ── SECTIONS ── */
+  .section { max-width: 960px; margin: 0 auto; padding: 4rem 2rem 3rem; }
+  .section-header {
+    display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem;
+    padding-bottom: 1rem; border-bottom: 2px solid var(--green);
+  }
+  .section-icon {
+    width: 42px; height: 42px; background: var(--green);
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.15rem; flex-shrink: 0;
+  }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: 1.65rem; }
+  .section-badge {
+    margin-left: auto; background: var(--green); color: white;
+    font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.65rem;
+    border-radius: 100px; letter-spacing: 0.05em;
+  }
+
+  /* ── VIDEO CARD ── */
+  .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; }
+  .video-card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .video-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.09); transform: translateY(-3px); }
+  .video-thumb {
+    position: relative; background: var(--ink);
+    height: 195px; display: flex; align-items: center; justify-content: center;
+    cursor: pointer; overflow: hidden;
+  }
+  .video-thumb img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+  .play-btn {
+    position: absolute;
+    width: 54px; height: 54px; border-radius: 50%;
+    background: rgba(255,255,255,0.92);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    transition: transform 0.2s;
+  }
+  .video-thumb:hover .play-btn { transform: scale(1.1); }
+  .play-btn svg { margin-left: 3px; }
+  .card-info { padding: 1rem 1.1rem 1.1rem; }
+  .card-label {
+    font-size: 0.68rem; font-weight: 600; color: var(--green);
+    text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.35rem;
+  }
+  .card-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; line-height: 1.4; }
+  .card-date { font-size: 0.74rem; color: var(--muted); }
+  .card-desc { font-size: 0.82rem; color: var(--muted); margin-top: 0.5rem; line-height: 1.55; }
+
+  /* ── VIDEO MODAL ── */
+  .modal {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.9); z-index: 900;
+    align-items: center; justify-content: center; padding: 1.5rem;
+  }
+  .modal.open { display: flex; }
+  .modal-box {
+    background: var(--ink); border-radius: 12px; overflow: hidden;
+    width: 100%; max-width: 760px; position: relative;
+  }
+  .modal-close {
+    position: absolute; top: 0.75rem; right: 0.75rem;
+    background: rgba(255,255,255,0.15); border: none; color: white;
+    width: 32px; height: 32px; border-radius: 50%;
+    font-size: 1.1rem; cursor: pointer; z-index: 10;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.3); }
+  .modal-box iframe { width: 100%; height: 420px; border: none; display: block; }
+  .modal-title { color: white; padding: 0.9rem 1.1rem; font-size: 0.9rem; font-weight: 500; opacity: 0.85; }
+
+  /* ── GRAPHICS / PHOTO GRID ── */
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .photo-card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s; cursor: pointer;
+  }
+  .photo-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.1); transform: translateY(-3px); }
+  .photo-card img { width: 100%; height: 175px; object-fit: cover; display: block; }
+  .photo-card .card-info { padding: 0.75rem 0.9rem; }
+
+  /* ── PDF CARDS ── */
+  .pdf-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+  .pdf-card {
+    background: var(--white); border: 1px solid var(--line);
+    border-radius: 12px; padding: 1.4rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .pdf-card:hover { box-shadow: 0 10px 28px rgba(0,0,0,0.08); transform: translateY(-3px); }
+  .pdf-icon {
+    width: 46px; height: 46px; background: #fde8dc;
+    border-radius: 10px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.3rem; flex-shrink: 0;
+  }
+  .pdf-info { flex: 1; }
+  .pdf-title { font-weight: 600; font-size: 0.92rem; margin-bottom: 0.2rem; line-height: 1.4; }
+  .pdf-meta { font-size: 0.74rem; color: var(--muted); margin-bottom: 0.6rem; }
+  .pdf-desc { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.75rem; line-height: 1.5; }
+  .pdf-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+  .btn {
+    font-size: 0.75rem; padding: 0.35rem 0.85rem;
+    border-radius: 6px; text-decoration: none; font-weight: 600;
+    display: inline-flex; align-items: center; gap: 0.3rem;
+    transition: opacity 0.2s; border: none; cursor: pointer;
+  }
+  .btn:hover { opacity: 0.82; }
+  .btn-view { background: var(--green); color: white; }
+  .btn-dl { background: var(--sand); color: var(--ink); border: 1px solid var(--line); }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.92); z-index: 1000;
+    align-items: center; justify-content: center; padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: 90vw; max-height: 86vh; border-radius: 8px; object-fit: contain; }
+  .lb-close {
+    position: absolute; top: 1.25rem; right: 1.25rem;
+    color: white; font-size: 1.8rem; cursor: pointer;
+    background: none; border: none; opacity: 0.8; line-height: 1;
+    transition: opacity 0.2s;
+  }
+  .lb-close:hover { opacity: 1; }
+  .lb-caption {
+    position: absolute; bottom: 1.5rem; left: 50%;
+    transform: translateX(-50%);
+    color: white; font-size: 0.82rem; opacity: 0.7; text-align: center;
+  }
+
+  /* ── NOTICE BOX ── */
+  .notice {
+    background: #fffbf5; border: 1px solid #f0d8b8;
+    border-radius: 10px; padding: 1.1rem 1.25rem;
+    font-size: 0.82rem; color: #7a5c2a; margin-bottom: 2rem;
+    display: flex; gap: 0.75rem; align-items: flex-start;
+  }
+  .notice-icon { font-size: 1rem; flex-shrink: 0; margin-top: 0.1rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink); color: var(--sage-lt);
+    text-align: center; padding: 2.5rem 2rem; font-size: 0.8rem; margin-top: 2rem;
+  }
+  footer a { color: var(--sage-lt); }
+
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .gate { grid-template-columns: 1fr; }
+    .video-grid, .photo-grid, .pdf-grid { grid-template-columns: 1fr; }
+    .modal-box iframe { height: 240px; }
+  }
+
+  /* scroll reveal */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.5s ease, transform 0.5s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity:1; transform:none; } }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#">Rafi Al Imran</a>
+  <div class="nav-links">
+    <a href="index.html">About Me</a>
+    <a href="#av">Audio Visual</a>
+    <a href="#graphics">Graphics</a>
+    <a href="#photos">Photos</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">Humanitarian Communications · Cox's Bazar, Bangladesh</div>
+  <h1>My Portfolio</h1>
+  <p class="hero-sub">Field documentation, audio-visual productions, graphic design, and photography from humanitarian projects serving Rohingya and host communities.</p>
+  <div class="hero-tags">
+    <span class="hero-tag">🎬 Audio Visual</span>
+    <span class="hero-tag">🎨 Graphics</span>
+    <span class="hero-tag">📷 Photos</span>
+    <span class="hero-tag">📄 Documents</span>
+  </div>
+</div>
+
+<!-- ENTRY GATE -->
+<div class="gate reveal">
+  <a class="gate-card" href="#av">
+    <div class="gate-emoji">🎬</div>
+    <div class="gate-title">Audio Visual</div>
+    <div class="gate-desc">Video productions for IOM Bangladesh and Oxfam-funded livelihood projects. Field documentation and advocacy content.</div>
+    <div class="gate-arrow">View Videos →</div>
+  </a>
+  <a class="gate-card" href="#graphics">
+    <div class="gate-emoji">🎨</div>
+    <div class="gate-title">Graphics & Design</div>
+    <div class="gate-desc">Infographics, factsheets, success story cards, and print materials produced for humanitarian communications.</div>
+    <div class="gate-arrow">View Designs →</div>
+  </a>
+  <a class="gate-card" href="#photos">
+    <div class="gate-emoji">📷</div>
+    <div class="gate-title">Photography</div>
+    <div class="gate-desc">Field photography from Rohingya camps and host communities in Ukhiya and Teknaf, Cox's Bazar.</div>
+    <div class="gate-arrow">View Photos →</div>
+  </a>
+</div>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     AUDIO VISUAL SECTION
+     ════════════════════════════════════ -->
+<section class="section reveal" id="av">
+  <div class="section-header">
+    <div class="section-icon">🎬</div>
+    <h2 class="section-title">Audio Visual Productions</h2>
+    <span class="section-badge">1 Video</span>
+  </div>
+
+  <div class="notice">
+    <div class="notice-icon">💡</div>
+    <div>Click the <strong>play button</strong> on any video to watch it in a popup. If a video does not load, click <strong>"Open in Drive"</strong> to watch it directly on Google Drive.</div>
+  </div>
+
+  <div class="video-grid">
+
+    <!-- VIDEO 1: IOM Bangladesh Migration Health Programme -->
+    <div class="video-card">
+      <div class="video-thumb" onclick="openVideo('1irkJh-TJqXJ7SuVGjCeOkcQ_irnh1p0p', 'IOM Bangladesh Migration Health Programme')">
+        <img src="https://drive.google.com/uc?id=145-wtoXncVxAXsmjKJY9d52AIKaQ2HI8" alt="IOM Bangladesh Migration Health Programme thumbnail">
+        <div class="play-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#3d6b52"><polygon points="5,3 19,12 5,21"/></svg>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-label">IOM Bangladesh · Migration Health</div>
+        <div class="card-title">IOM Bangladesh Migration Health Programme</div>
+        <div class="card-date">2025 · MP4 · 100 MB</div>
+        <div class="card-desc">Audio-visual production documenting the IOM Bangladesh Migration Health Programme, produced as part of the IOM Communications Skills Technical Assessment.</div>
+        <div style="margin-top:0.75rem; display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-view" onclick="openVideo('1irkJh-TJqXJ7SuVGjCeOkcQ_irnh1p0p', 'IOM Bangladesh Migration Health Programme')">▶ Play</button>
+          <a class="btn btn-dl" href="https://drive.google.com/file/d/1irkJh-TJqXJ7SuVGjCeOkcQ_irnh1p0p/view" target="_blank">↗ Open in Drive</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD MORE VIDEOS HERE — copy the block above and change the file ID and details -->
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     GRAPHICS & DESIGN SECTION
+     ════════════════════════════════════ -->
+<section class="section reveal" id="graphics">
+  <div class="section-header">
+    <div class="section-icon">🎨</div>
+    <h2 class="section-title">Graphics & Design</h2>
+    <span class="section-badge">2 Documents</span>
+  </div>
+
+  <div class="notice">
+    <div class="notice-icon">💡</div>
+    <div>Click <strong>"View"</strong> to open the PDF in your browser. Click <strong>"Download"</strong> to save it to your device.</div>
+  </div>
+
+  <div class="pdf-grid">
+
+    <!-- PDF 1: Graphics Design Work -->
+    <div class="pdf-card">
+      <div class="pdf-icon">🎨</div>
+      <div class="pdf-info">
+        <div class="pdf-title">Graphics Design Work Portfolio</div>
+        <div class="pdf-meta">PDF · 2.4 MB · Graphic Design</div>
+        <div class="pdf-desc">Collection of graphic design work including social media posts, posters, infographics, and print materials for humanitarian communications.</div>
+        <div class="pdf-actions">
+          <a class="btn btn-view" href="https://drive.google.com/file/d/1yA_aPHZA_heVje2cA7DFCmaUhfyB3kuz/preview" target="_blank">👁 View</a>
+          <a class="btn btn-dl" href="https://drive.google.com/uc?export=download&id=1yA_aPHZA_heVje2cA7DFCmaUhfyB3kuz" target="_blank">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PDF 2: Success Story -->
+    <div class="pdf-card">
+      <div class="pdf-icon">📖</div>
+      <div class="pdf-info">
+        <div class="pdf-title">Success Story – Field Documentation</div>
+        <div class="pdf-meta">PDF · 433 KB · Storytelling</div>
+        <div class="pdf-desc">A designed success story card from field documentation work, showcasing beneficiary impact for a humanitarian livelihood project.</div>
+        <div class="pdf-actions">
+          <a class="btn btn-view" href="https://drive.google.com/file/d/12NXh-BXQIbBzf2Ry_9CGNC00dGKbY9My/preview" target="_blank">👁 View</a>
+          <a class="btn btn-dl" href="https://drive.google.com/uc?export=download&id=12NXh-BXQIbBzf2Ry_9CGNC00dGKbY9My" target="_blank">⬇ Download</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADD MORE PDFs HERE — copy one block above and change the file ID and details -->
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ════════════════════════════════════
+     PHOTOS SECTION
+     ════════════════════════════════════ -->
+<section class="section reveal" id="photos">
+  <div class="section-header">
+    <div class="section-icon">📷</div>
+    <h2 class="section-title">Photography</h2>
+  </div>
+
+  <div class="notice">
+    <div class="notice-icon">💡</div>
+    <div>
+      <strong>To add photos here:</strong> Upload your photos to Google Drive → Right-click → Share → "Anyone with the link" → Copy link → Extract the File ID from the link → Copy and uncomment the template block below in this file.
+      <br><br>
+      Your photo link looks like: <code style="background:#f0ebe0;padding:0.1rem 0.4rem;border-radius:4px;">https://drive.google.com/file/d/<strong>FILEID</strong>/view</code>
+    </div>
+  </div>
+
+  <div class="photo-grid" id="photo-grid">
+
+    <!--
+    ▼▼▼ COPY THIS BLOCK TO ADD A PHOTO ▼▼▼
+    Replace PASTE_FILE_ID with your Google Drive File ID.
+
+    <div class="photo-card" onclick="openLightbox(this)">
+      <img src="https://drive.google.com/uc?id=PASTE_FILE_ID" alt="Photo title" loading="lazy">
+      <div class="card-info">
+        <div class="card-title">Photo Title Here</div>
+        <div class="card-date">June 2026 · Location</div>
+      </div>
+    </div>
+    ▲▲▲ END PHOTO BLOCK ▲▲▲
+    -->
+
+  </div>
+
+  <div id="photo-empty" style="text-align:center;padding:3rem 2rem;background:var(--sand);border-radius:12px;border:2px dashed var(--line);">
+    <div style="font-size:2.5rem;margin-bottom:0.75rem;">📷</div>
+    <p style="color:var(--muted);font-size:0.9rem;"><strong>No photos yet.</strong><br>Upload your field photos to Google Drive and add them here following the guide above.</p>
+  </div>
+</section>
+
+<!-- VIDEO MODAL -->
+<div class="modal" id="video-modal" onclick="closeVideoModal(event)">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeVideoBtn()">✕</button>
+    <iframe id="modal-iframe" src="" allow="autoplay" allowfullscreen></iframe>
+    <div class="modal-title" id="modal-title"></div>
+  </div>
+</div>
+
+<!-- PHOTO LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightboxClick(event)">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <img id="lb-img" src="" alt="">
+  <div class="lb-caption" id="lb-caption"></div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Rafi Al Imran · MEAL & Communications Officer · Cox's Bazar, Bangladesh</p>
+  <p style="margin-top:0.4rem;opacity:0.6;">
+    <a href="mailto:rafialimran@gmail.com">rafialimran@gmail.com</a> &nbsp;·&nbsp;
+    <a href="index.html">About Me & CV</a>
+  </p>
+</footer>
+
+<script>
+  // ── VIDEO MODAL ──
+  function openVideo(fileId, title) {
+    document.getElementById('modal-iframe').src = `https://drive.google.com/file/d/${fileId}/preview`;
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('video-modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeVideoModal(e) {
+    if (e.target === document.getElementById('video-modal')) closeVideoBtn();
+  }
+  function closeVideoBtn() {
+    document.getElementById('video-modal').classList.remove('open');
+    document.getElementById('modal-iframe').src = '';
+    document.body.style.overflow = '';
+  }
+
+  // ── PHOTO LIGHTBOX ──
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    const title = card.querySelector('.card-title')?.textContent || '';
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-caption').textContent = title;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightboxClick(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── PHOTO EMPTY STATE ──
+  const photoGrid = document.getElementById('photo-grid');
+  const photoEmpty = document.getElementById('photo-empty');
+  photoEmpty.style.display = photoGrid.children.length === 0 ? 'block' : 'none';
+
+  // ── SCROLL REVEAL ──
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // ── KEYBOARD ──
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeVideoBtn(); closeLightbox(); }
+  });
+</script>
+</body>
+</html>
