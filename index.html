@@ -1,38 +1,47 @@
- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rafial Imran | Professional Portfolio</title>
-    <!-- This line connects your HTML to the CSS file we will make next -->
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="resume-container">
-        <header>
-            <h1>Rafial Imran</h1>
-            <p>Humanitarian & International Development Professional</p>
-        </header>
-        
-        <section class="content-section">
-            <h2>Professional Experience</h2>
-            <div class="item">
-                <h3>Program Support & Communications</h3>
-                <p><strong>Oxfam & Mukti Cox's Bazar</strong></p>
-                <ul>
-                    <li>Drafted comprehensive reports, training materials, and donor communications.</li>
-                    <li>Supported climate-smart livelihood ecosystems and sustainable agriculture initiatives.</li>
-                </ul>
-            </div>
-        </section>
+ #!/bin/bash
+# =============================================================
+# Upload Rafi Al Imran - Europass Profile to GitHub
+# =============================================================
+# STEP 1: Make sure Git is installed
+#   git --version
+#
+# STEP 2: Configure Git (only needed once)
+# =============================================================
 
-        <section class="content-section">
-            <h2>Education</h2>
-            <div class="item">
-                <h3>Post-Graduation & Graduation Studies</h3>
-                <p>Focused on comprehensive academic development to support an international standard of professional work.</p>
-            </div>
-        </section>
-    </div>
-</body>
-</html>
+git config --global user.name "Your GitHub Username"
+git config --global user.email "your-email@example.com"
+
+# =============================================================
+# STEP 3: Create a new folder and put your HTML file inside it
+# =============================================================
+
+mkdir my-profile
+cd my-profile
+cp /path/to/Shared_profile___Rafi_Al_Imran.html .
+
+# =============================================================
+# STEP 4: Initialize Git and make first commit
+# =============================================================
+
+git init
+git add Shared_profile___Rafi_Al_Imran.html
+git commit -m "Add Europass profile - Rafi Al Imran"
+
+# =============================================================
+# STEP 5: Connect to your GitHub repository
+# Replace YOUR_USERNAME and YOUR_REPO_NAME below
+# Example: https://github.com/rafi-alimran/my-profile.git
+# =============================================================
+
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
+
+# =============================================================
+# STEP 6: Push to GitHub
+# =============================================================
+
+git branch -M main
+git push -u origin main
+
+# =============================================================
+# DONE! Your file is now on GitHub.
+# =============================================================
