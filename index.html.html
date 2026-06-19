@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rafi Al Imran | MEAL & Communications | Humanitarian Sector</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:       #0f1a14;
+    --sage:      #3d6b52;
+    --sage-lt:   #c8ddd0;
+    --sand:      #f5f0e8;
+    --cream:     #fdfaf5;
+    --accent:    #b85c2a;
+    --line:      #d4cfc6;
+    --muted:     #6b7a70;
+    --white:     #ffffff;
+
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body:    'Inter', system-ui, sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+
+    --max: 900px;
+    --gutter: clamp(1.5rem, 5vw, 3rem);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(253,250,245,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 var(--gutter);
+  }
+  .nav-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    gap: 2rem;
+  }
+  .nav-logo {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--sage);
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.75rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--sage); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: clamp(4rem, 10vw, 7rem) var(--gutter) clamp(3rem, 8vw, 5rem);
+    border-bottom: 1px solid var(--line);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  .hero-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .hero-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--accent);
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.5rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--sage);
+  }
+  .hero-bio {
+    max-width: 560px;
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    padding: 0.3rem 0.75rem;
+    background: var(--sage-lt);
+    color: var(--sage);
+    border-radius: 100px;
+    letter-spacing: 0.04em;
+    font-weight: 500;
+  }
+  .hero-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  .hero-contact a {
+    color: var(--sage);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: opacity 0.2s;
+  }
+  .hero-contact a:hover { opacity: 0.7; }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5rem) var(--gutter);
+    border-bottom: 1px solid var(--line);
+  }
+  .section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  .timeline { display: flex; flex-direction: column; gap: 0; }
+  .tl-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-date {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    padding-top: 0.3rem;
+    line-height: 1.5;
+  }
+  .tl-dot {
+    position: absolute;
+    left: 132px;
+    top: 2.5rem;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--sage);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 1px var(--sage);
+  }
+  .tl-body {}
+  .tl-role {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+    line-height: 1.3;
+  }
+  .tl-org {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--sage);
+    letter-spacing: 0.03em;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .tl-desc {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  .tl-desc ul { padding-left: 1.1rem; margin-top: 0.5rem; }
+  .tl-desc li { margin-bottom: 0.35rem; }
+  .tl-skills {
+    margin-top: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .skill-chip {
+    font-family: var(--font-mono);
+    font-size: 0.67rem;
+    padding: 0.2rem 0.6rem;
+    background: var(--sand);
+    color: var(--ink);
+    border-radius: 4px;
+    border: 1px solid var(--line);
+  }
+
+  /* ── EDUCATION ── */
+  .edu-grid { display: flex; flex-direction: column; gap: 1.5rem; }
+  .edu-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 0 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .edu-item:last-child { border-bottom: none; }
+  .edu-year {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--muted);
+    padding-top: 0.2rem;
+  }
+  .edu-degree {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .edu-inst {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--sage);
+    margin-bottom: 0.4rem;
+  }
+  .edu-note {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* ── SKILLS GRID ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+  .skill-block {}
+  .skill-block-title {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+  }
+  .skill-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .pill {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    border-radius: 4px;
+    border: 1px solid var(--line);
+    background: var(--white);
+    color: var(--ink);
+  }
+
+  /* ── LANGUAGES ── */
+  .lang-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1rem;
+  }
+  .lang-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+  }
+  .lang-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .lang-level {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .lang-bar {
+    margin-top: 0.6rem;
+    height: 3px;
+    background: var(--line);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .lang-fill {
+    height: 100%;
+    background: var(--sage);
+    border-radius: 2px;
+  }
+
+  /* ── TRAINING ── */
+  .training-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem 2rem;
+  }
+  .training-item {
+    font-size: 0.85rem;
+    color: var(--muted);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+  }
+  .training-item::before {
+    content: '›';
+    color: var(--sage);
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1.4;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--sage-lt);
+    padding: 2.5rem var(--gutter);
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  footer a { color: var(--sage-lt); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .tl-item, .edu-item {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+    .tl-dot { display: none; }
+    .training-list { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  /* ── SCROLL ANIMATION ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+
+  /* ── PORTFOLIO BANNER ── */
+  .portfolio-banner {
+    background: linear-gradient(135deg, #0f1a14 0%, #1e3a28 100%);
+    padding: clamp(2rem, 5vw, 3rem) var(--gutter);
+    border-bottom: 1px solid #2a4d39;
+  }
+  .portfolio-banner-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .pb-left {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .pb-icons {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .pb-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .pb-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7ab896;
+    margin-bottom: 0.3rem;
+  }
+  .pb-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  .pb-desc {
+    font-size: 0.84rem;
+    color: #7ab896;
+    font-weight: 400;
+  }
+  .pb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(61,107,82,0.5);
+    flex-shrink: 0;
+  }
+  .pb-btn:hover {
+    background: #2a4d39;
+    transform: translateX(4px);
+    box-shadow: 0 6px 28px rgba(61,107,82,0.6);
+  }
+  @media (max-width: 600px) {
+    .portfolio-banner-inner { flex-direction: column; align-items: flex-start; }
+    .pb-btn { width: 100%; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">Rafi Al Imran</a>
+    <ul class="nav-links">
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="portfolio.html" style="color:var(--accent);font-weight:600;">🎬 Portfolio</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero reveal">
+  <div class="hero-eyebrow">Humanitarian Sector · Cox's Bazar, Bangladesh</div>
+  <h1>Rafi Al<br><em>Imran</em></h1>
+  <p class="hero-bio">
+    MEAL &amp; Documentation Officer with hands-on experience in monitoring, evaluation, accountability, and learning for Oxfam-funded livelihood and food security projects serving Rohingya camp and host communities. Skilled in data collection, communications, and field-based documentation.
+  </p>
+  <div class="hero-tags">
+    <span class="tag">MEAL</span>
+    <span class="tag">Documentation</span>
+    <span class="tag">Communications</span>
+    <span class="tag">KoboCollect</span>
+    <span class="tag">Data Analysis</span>
+    <span class="tag">Field Research</span>
+    <span class="tag">Criminology</span>
+  </div>
+  <div class="hero-contact">
+    <a href="mailto:rafialimran@gmail.com">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>
+      rafialimran@gmail.com
+    </a>
+    <a href="tel:+8801856733928">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5 19.79 19.79 0 01.22 2.84 2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.14a16 16 0 006.95 6.95l1.42-1.41a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      +880 1856733928
+    </a>
+    <a href="https://rafialimran.github.io" target="_blank">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+      rafialimran.github.io
+    </a>
+    <a href="portfolio.html" style="background:var(--sage);color:white;padding:0.4rem 1.1rem;border-radius:50px;font-weight:600;font-size:0.82rem;display:inline-flex;align-items:center;gap:0.4rem;">
+      🎬 My Portfolio →
+    </a>
+  </div>
+</header>
+
+<!-- PORTFOLIO BANNER -->
+<div class="portfolio-banner reveal">
+  <div class="portfolio-banner-inner">
+    <div class="pb-left">
+      <div class="pb-icons">
+        <span class="pb-icon">🎬</span>
+        <span class="pb-icon">🎨</span>
+        <span class="pb-icon">📷</span>
+      </div>
+      <div>
+        <div class="pb-label">Explore My Work</div>
+        <div class="pb-title">View My Portfolio</div>
+        <div class="pb-desc">Videos · Graphics · Photography · Field Documentation</div>
+      </div>
+    </div>
+    <a class="pb-btn" href="portfolio.html">
+      Open Portfolio
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- EXPERIENCE -->
+<section class="section reveal" id="experience">
+  <div class="section-label">Work Experience</div>
+  <div class="timeline">
+
+    <div class="tl-item">
+      <div class="tl-date">Jan 2026<br>— Current</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">MEAL &amp; Documentation Officer</div>
+        <div class="tl-org">Mukti Cox's Bazar · Thaingkhali, Ukhiya, Cox's Bazar</div>
+        <div class="tl-desc">
+          Leading documentation of project activities — including field stories, photos, and case studies — while maintaining structured records to support MEAL reporting and knowledge management for an Oxfam-funded livelihood project (Harvesting Hope &amp; SLFS Phase 2).
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Feb 2025<br>— Dec 2025</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Project Officer – Documentation, Communication &amp; Publication</div>
+        <div class="tl-org">Mukti Cox's Bazar · Cox's Bazar</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Managed communications for DFAT AHP IV Inclusive Project (Mukti–Oxfam partnership), producing multi-format knowledge products across print, digital, and audio-visual channels.</li>
+            <li>Led development of magazines, storytelling books, and field-based publications from concept to final delivery.</li>
+            <li>Designed and disseminated social media posts, posters, press releases, and digital campaigns.</li>
+            <li>Applied ethical, safety, and protection standards in all writing, filming, and communication materials.</li>
+          </ul>
+          <div class="tl-skills">
+            <span class="skill-chip">CapCut</span><span class="skill-chip">Canva</span><span class="skill-chip">Adobe Suite</span><span class="skill-chip">MS Office</span><span class="skill-chip">CorelDRAW</span><span class="skill-chip">Lightroom</span><span class="skill-chip">Clipchamp</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">Nov 2024<br>— Feb 2025</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Research Intern</div>
+        <div class="tl-org">Bangladesh Institute of Social Research (BISR)</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Coordinated large-scale field data collection (surveys, KIIs, FGDs) across 2 research projects.</li>
+            <li>Managed and analyzed datasets (sample size: 20,000) using Excel and SPSS.</li>
+            <li>Assisted in drafting ~10 research reports and case studies.</li>
+            <li>Contributed to Expression of Interest (EoI) preparation and questionnaire development.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2023<br>— 2024</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Data Analyst</div>
+        <div class="tl-org">Manobadhikar O Samaj Unnayan Sangstha (MOSUS)</div>
+        <div class="tl-desc">
+          Managed, analyzed, interpreted, and wrote reports based on large-scale survey data related to free election surveys. Coordinated with field collectors, oversaw data entry, performed data cleaning and coding, and developed comprehensive final reports for board-level decision-making.
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2020<br>— 2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Research Assistant</div>
+        <div class="tl-org">Department of Criminology, University of Dhaka</div>
+        <div class="tl-desc">
+          <ul>
+            <li>Conducted quantitative and qualitative data collection for <em>Community Policing and Countering Extremism in Bangladesh</em> (Asia Foundation, 2020).</li>
+            <li>Analyzed archival street crime data (2004–2008) from <em>The Daily Star</em> using SPSS and Excel.</li>
+            <li>Led a 15-day participant observation study, managing a team of 5 young researchers.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-item">
+      <div class="tl-date">2022<br>— 2023</div>
+      <div class="tl-dot"></div>
+      <div class="tl-body">
+        <div class="tl-role">Academic Support Executive</div>
+        <div class="tl-org">Global Academic Consultancy Firm</div>
+        <div class="tl-desc">
+          Provided individualized academic support to 70+ international students, enhancing assignment completion rates by 30% through targeted feedback, structured writing sessions, and skill-building workshops focused on research, analysis, and academic writing.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="section reveal" id="education">
+  <div class="section-label">Education</div>
+  <div class="edu-grid">
+
+    <div class="edu-item">
+      <div class="edu-year">2021 – 2022</div>
+      <div>
+        <div class="edu-degree">Master of Social Science (MSS) in Criminology</div>
+        <div class="edu-inst">University of Dhaka, Bangladesh</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2018 – 2022</div>
+      <div>
+        <div class="edu-degree">Bachelor of Social Sciences (BSS) in Criminology</div>
+        <div class="edu-inst">University of Dhaka, Bangladesh</div>
+        <div class="edu-note">Research Monograph: <em>The Impact of Trade Union Bureaucracy on Daily Actions — A Study on Dhaka Medical College and Hospital</em></div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2015 – 2017</div>
+      <div>
+        <div class="edu-degree">Higher Secondary Certificate (HSC)</div>
+        <div class="edu-inst">Govt. Hazi Muhammad Muhsin College, Chittagong Education Board</div>
+        <div class="edu-note">Humanities · GPA 4.58/5 · Scholarship recipient for outstanding result</div>
+      </div>
+    </div>
+
+    <div class="edu-item">
+      <div class="edu-year">2013 – 2015</div>
+      <div>
+        <div class="edu-degree">Secondary School Certificate (SSC)</div>
+        <div class="edu-inst">Fatehabad Model and Multilateral High School, Chattagram</div>
+        <div class="edu-note">Finance &amp; Banking, Accounting, Computer Science · Top GPA in Business Studies group, 2015</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section reveal" id="skills">
+  <div class="section-label">Skills</div>
+  <div class="skills-grid">
+
+    <div class="skill-block">
+      <div class="skill-block-title">MEAL &amp; Research</div>
+      <div class="skill-pills">
+        <span class="pill">KoboCollect</span>
+        <span class="pill">SPSS</span>
+        <span class="pill">Excel</span>
+        <span class="pill">ODK</span>
+        <span class="pill">Surveys / KIIs / FGDs</span>
+        <span class="pill">PDM</span>
+        <span class="pill">Baseline Assessment</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Communication &amp; Design</div>
+      <div class="skill-pills">
+        <span class="pill">Canva</span>
+        <span class="pill">CapCut</span>
+        <span class="pill">CorelDRAW</span>
+        <span class="pill">Adobe Lightroom</span>
+        <span class="pill">Clipchamp</span>
+        <span class="pill">Adobe Suite</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Documentation</div>
+      <div class="skill-pills">
+        <span class="pill">MS Word</span>
+        <span class="pill">MS Excel</span>
+        <span class="pill">MS PowerPoint</span>
+        <span class="pill">Field Stories</span>
+        <span class="pill">Case Studies</span>
+        <span class="pill">Donor Reports</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Data Analysis</div>
+      <div class="skill-pills">
+        <span class="pill">Python (SciPy)</span>
+        <span class="pill">Chi-square</span>
+        <span class="pill">T-tests</span>
+        <span class="pill">Quantitative</span>
+        <span class="pill">Qualitative</span>
+      </div>
+    </div>
+
+    <div class="skill-block">
+      <div class="skill-block-title">Other</div>
+      <div class="skill-pills">
+        <span class="pill">Public Speaking</span>
+        <span class="pill">Debate</span>
+        <span class="pill">Voice-over</span>
+        <span class="pill">Social Media</span>
+        <span class="pill">Press Releases</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- LANGUAGES -->
+<section class="section reveal" id="languages">
+  <div class="section-label">Languages</div>
+  <div class="lang-grid">
+
+    <div class="lang-card">
+      <div class="lang-name">Bengali (Bangla)</div>
+      <div class="lang-level">Native</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">Chittagonian</div>
+      <div class="lang-level">Native dialect</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">Rohingya</div>
+      <div class="lang-level">Conversational</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:65%"></div></div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">English</div>
+      <div class="lang-level">Professional</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+    </div>
+    <div class="lang-card">
+      <div class="lang-name">CHT Hill Tracts</div>
+      <div class="lang-level">Basic</div>
+      <div class="lang-bar"><div class="lang-fill" style="width:35%"></div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRAINING & CERTIFICATES -->
+<section class="section reveal" id="training">
+  <div class="section-label">Training &amp; Certifications</div>
+  <div class="training-list">
+    <div class="training-item">Fundamentals of Research Methodology</div>
+    <div class="training-item">MEAL in Emergencies (DisasterReady.org)</div>
+    <div class="training-item">Introduction to Monitoring and Evaluation</div>
+    <div class="training-item">Communications in Humanitarian Setting</div>
+    <div class="training-item">Communications, Media and Advocacy (Field Visit)</div>
+    <div class="training-item">PSEAH Training</div>
+    <div class="training-item">Bsafe (Safety &amp; Security)</div>
+    <div class="training-item">Qualitative Data Analysis</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Rafi Al Imran · Cox's Bazar, Bangladesh · <a href="mailto:rafialimran@gmail.com">rafialimran@gmail.com</a></p>
+  <p style="margin-top:0.4rem;opacity:0.6;">MEAL &amp; Communications Professional · Humanitarian Sector</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
