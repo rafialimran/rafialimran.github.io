@@ -413,6 +413,88 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; }
   }
+
+  /* ── PORTFOLIO BANNER ── */
+  .portfolio-banner {
+    background: linear-gradient(135deg, #0f1a14 0%, #1e3a28 100%);
+    padding: clamp(2rem, 5vw, 3rem) var(--gutter);
+    border-bottom: 1px solid #2a4d39;
+  }
+  .portfolio-banner-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .pb-left {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+  }
+  .pb-icons {
+    display: flex;
+    gap: 0.4rem;
+  }
+  .pb-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+  }
+  .pb-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #7ab896;
+    margin-bottom: 0.3rem;
+  }
+  .pb-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+    line-height: 1.2;
+  }
+  .pb-desc {
+    font-size: 0.84rem;
+    color: #7ab896;
+    font-weight: 400;
+  }
+  .pb-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--sage);
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.85rem 2rem;
+    border-radius: 50px;
+    white-space: nowrap;
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 20px rgba(61,107,82,0.5);
+    flex-shrink: 0;
+  }
+  .pb-btn:hover {
+    background: #2a4d39;
+    transform: translateX(4px);
+    box-shadow: 0 6px 28px rgba(61,107,82,0.6);
+  }
+  @media (max-width: 600px) {
+    .portfolio-banner-inner { flex-direction: column; align-items: flex-start; }
+    .pb-btn { width: 100%; justify-content: center; }
+  }
 </style>
 </head>
 <body>
@@ -427,6 +509,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#languages">Languages</a></li>
       <li><a href="#training">Training</a></li>
+      <li><a href="portfolio.html" style="color:var(--accent);font-weight:600;">🎬 Portfolio</a></li>
     </ul>
   </div>
 </nav>
@@ -460,8 +543,33 @@
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
       rafialimran.github.io
     </a>
+    <a href="portfolio.html" style="background:var(--sage);color:white;padding:0.4rem 1.1rem;border-radius:50px;font-weight:600;font-size:0.82rem;display:inline-flex;align-items:center;gap:0.4rem;">
+      🎬 My Portfolio →
+    </a>
   </div>
 </header>
+
+<!-- PORTFOLIO BANNER -->
+<div class="portfolio-banner reveal">
+  <div class="portfolio-banner-inner">
+    <div class="pb-left">
+      <div class="pb-icons">
+        <span class="pb-icon">🎬</span>
+        <span class="pb-icon">🎨</span>
+        <span class="pb-icon">📷</span>
+      </div>
+      <div>
+        <div class="pb-label">Explore My Work</div>
+        <div class="pb-title">View My Portfolio</div>
+        <div class="pb-desc">Videos · Graphics · Photography · Field Documentation</div>
+      </div>
+    </div>
+    <a class="pb-btn" href="portfolio.html">
+      Open Portfolio
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12,5 19,12 12,19"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- EXPERIENCE -->
 <section class="section reveal" id="experience">
