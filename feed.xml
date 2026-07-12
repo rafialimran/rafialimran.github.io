@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>Rafi Al Imran — Field Notes</title>
+  <link>https://rafialimran.github.io/blog.html</link>
+  <description>Writing on MEAL, research, documentation and humanitarian communication.</description>
+  <language>en</language>
+  <item>
+    <title>Why Data Quality Is the Quiet Hero of Every Humanitarian Programme</title>
+    <link>https://rafialimran.github.io/post.html?p=why-data-quality-matters.md</link>
+    <pubDate>Mon, 15 Jun 2026 00:00:00 +0600</pubDate>
+    <description>Donors see the report. Communities feel the programme. Between the two sits one thing: data you can trust.</description>
+  </item>
+  <item>
+    <title>Excel Tricks Every MEAL Officer Should Know</title>
+    <link>https://rafialimran.github.io/post.html?p=excel-for-meal-officers.md</link>
+    <pubDate>Wed, 20 May 2026 00:00:00 +0600</pubDate>
+    <description>Five Excel habits that turned my workbooks into decision tools.</description>
+  </item>
+  <item>
+    <title>Ethical Storytelling in Refugee Camps: A Field Checklist</title>
+    <link>https://rafialimran.github.io/post.html?p=ethical-storytelling.md</link>
+    <pubDate>Fri, 10 Apr 2026 00:00:00 +0600</pubDate>
+    <description>Consent is not a signature. It's a conversation.</description>
+  </item>
+</channel>
+</rss>
