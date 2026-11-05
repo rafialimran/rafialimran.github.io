@@ -9,6 +9,7 @@
 <meta property="og:description" content="Monitoring, data quality and reporting for humanitarian programmes in Cox's Bazar, Bangladesh.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://rafialimran.github.io/">
+<meta property="og:image" content="https://rafialimran.github.io/rafi-al-imran.jpg">
 <link rel="canonical" href="https://rafialimran.github.io/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f5c5a'/%3E%3Cpath d='M9 23V9h7a4.5 4.5 0 0 1 1 8.9L23 23' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,7 +44,8 @@ nav a{color:var(--muted);text-decoration:none}
 nav a:hover{color:var(--teal)}
 
 /* hero */
-.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start;padding:72px 0 64px}
+.hero{display:grid;grid-template-columns:1fr 320px;gap:64px;align-items:center;padding:64px 0 48px}
+.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 12%;border-radius:6px;border:1px solid var(--line);background:var(--tint)}
 .eyebrow{font-family:var(--mono);font-size:.82rem;color:var(--clay);margin:0 0 16px}
 h1{font:400 clamp(2.3rem,5vw,3.5rem)/1.1 var(--serif);letter-spacing:-.015em;margin:0 0 20px;text-wrap:balance}
 .lead{font-size:1.1rem;color:var(--muted);margin:0 0 28px;max-width:34em}
@@ -52,12 +54,14 @@ h1{font:400 clamp(2.3rem,5vw,3.5rem)/1.1 var(--serif);letter-spacing:-.015em;mar
 .btn.solid{background:var(--teal);color:var(--paper)}
 
 /* indicator table */
-.itt{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
-.itt table{width:100%;border-collapse:collapse}
-.itt caption{text-align:left;padding:13px 18px;font-family:var(--mono);font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--line);background:var(--tint)}
-.itt td{padding:12px 18px;border-bottom:1px solid var(--line);vertical-align:baseline}
-.itt tr:last-child td{border-bottom:0}
-.itt .v{font:400 1.75rem/1 var(--serif);color:var(--teal);white-space:nowrap;width:1%;padding-right:6px}
+.itt{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:64px}
+.itt table,.itt caption{display:block;width:100%}
+.itt tbody{display:grid;grid-template-columns:repeat(5,1fr)}
+.itt tr{display:block;border-left:1px solid var(--line);padding:16px 18px}
+.itt tr:first-child{border-left:0}
+.itt td{display:block;padding:0}
+.itt caption{box-sizing:border-box;text-align:left;padding:13px 18px;font-family:var(--mono);font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--line);background:var(--tint)}
+.itt .v{font:400 1.75rem/1 var(--serif);color:var(--teal);white-space:nowrap;margin-bottom:8px}
 .itt .k{font-size:.93rem;line-height:1.35}
 .itt small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
 
@@ -109,7 +113,14 @@ h3{font:600 1.05rem/1.35 var(--sans);margin:0}
 footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.85rem}
 
 @media (max-width:860px){
-  .hero{grid-template-columns:1fr;gap:36px;padding:44px 0}
+  .hero{grid-template-columns:1fr;gap:28px;padding:32px 0 36px}
+  .hero .photo{order:-1;width:150px}
+  .portrait{aspect-ratio:1/1;object-position:50% 14%}
+  .itt{margin-bottom:44px}
+  .itt tbody{grid-template-columns:1fr}
+  .itt tr{display:grid;grid-template-columns:96px 1fr;gap:12px;align-items:baseline;border-left:0;border-top:1px solid var(--line);padding:12px 18px}
+  .itt tr:first-child{border-top:0}
+  .itt .v{margin:0;font-size:1.45rem}
   .two{grid-template-columns:1fr;gap:32px}
   .grid{grid-template-columns:1fr}
   nav a:not(:last-child){display:none}
@@ -127,7 +138,11 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
   :root{--paper:#fff;--card:#fff;--ink:#000;--muted:#333;--line:#bbb;--teal:#0f5c5a;--clay:#0f5c5a;--tint:#eee}
   header,.actions,.gantt,footer{display:none}
   body{font-size:11pt}
-  .hero{grid-template-columns:1fr;padding:0 0 16px;gap:16px}
+  .hero{grid-template-columns:1fr 110px;padding:0 0 16px;gap:16px}
+  .hero .photo{order:0;width:auto}
+  .itt tbody{grid-template-columns:repeat(5,1fr)}
+  .itt tr{display:block;border-left:1px solid var(--line);border-top:0;padding:8px 10px}
+  .itt .v{font-size:1.2rem;margin-bottom:4px}
   section{padding:14px 0}
   .job,.card,.list li{break-inside:avoid}
   a{text-decoration:none}
@@ -164,7 +179,12 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
       </div>
     </div>
 
-    <div class="itt">
+    <div class="photo">
+      <img class="portrait" src="rafi-al-imran.jpg" width="408" height="629" alt="Portrait of Rafi Al Imran in a navy blazer">
+    </div>
+  </div>
+
+  <div class="itt">
       <table>
         <caption>Indicator tracking table · career to date</caption>
         <tr><td class="v">7,000+</td><td class="k">learners in the education work I monitor<small>FIVDB, 2026 to present</small></td></tr>
@@ -173,7 +193,6 @@ footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-s
         <tr><td class="v">3</td><td class="k">grants in monthly narrative reports<small>Gender, protection, livelihoods · Oxfam</small></td></tr>
         <tr><td class="v">120,000</td><td class="k">respondents in a pre-election survey<small>300 constituencies · five-person data team</small></td></tr>
       </table>
-    </div>
   </div>
 
   <!-- ========== ABOUT ========== -->
