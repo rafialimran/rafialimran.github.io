@@ -1,73 +1,400 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rafi Al Imran — MEAL &amp; Documentation Professional</title>
-<meta name="description" content="MEAL and Documentation professional in the Rohingya refugee response, Cox's Bazar. Monitoring, evaluation, accountability, learning, research and humanitarian storytelling.">
-<meta property="og:title" content="Rafi Al Imran — MEAL &amp; Documentation Professional">
-<meta property="og:description" content="MEAL and Documentation professional in the Rohingya refugee response, Cox's Bazar. Monitoring, evaluation, accountability, learning, research and humanitarian storytelling.">
+<title>Rafi Al Imran | Humanitarian MEAL</title>
+<meta name="description" content="Rafi Al Imran is a humanitarian MEAL professional in Cox's Bazar, Bangladesh, working on monitoring, data quality and reporting.">
+<meta property="og:title" content="Rafi Al Imran | Humanitarian MEAL">
+<meta property="og:description" content="Monitoring, data quality and reporting for humanitarian programmes in Cox's Bazar, Bangladesh.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://rafialimran.github.io/index.html">
-<meta property="og:image" content="https://rafialimran.github.io/assets/img/og-cover.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://rafialimran.github.io/index.html">
+<meta property="og:url" content="https://rafialimran.github.io/">
+<link rel="canonical" href="https://rafialimran.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230f5c5a'/%3E%3Cpath d='M9 23V9h7a4.5 4.5 0 0 1 1 8.9L23 23' fill='none' stroke='%23fff' stroke-width='3'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,500&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/main.css">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>">
-<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: dark)').matches)document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f6f3ec; --card:#fffdf8; --ink:#1b2a2f; --muted:#56666a; --line:#d9d4c8;
+  --teal:#0f5c5a; --clay:#b0492a; --tint:#e4ece8;
+  --serif:"Newsreader",Georgia,"Times New Roman",serif;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root{
+  --paper:#141c1e; --card:#1b2528; --ink:#ecebe4; --muted:#a3b0b1; --line:#33413f;
+  --teal:#6fc4b8; --clay:#eb9472; --tint:#20302f;
+}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 17px/1.6 var(--sans)}
+a{color:var(--teal);text-underline-offset:3px}
+a:focus-visible,button:focus-visible{outline:2px solid var(--clay);outline-offset:2px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.mono{font-family:var(--mono);font-size:.78rem;letter-spacing:.02em}
+
+/* top bar */
+header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;height:60px}
+.brand{font:500 1.2rem var(--serif);color:var(--ink);text-decoration:none}
+nav{display:flex;gap:22px;font-size:.92rem}
+nav a{color:var(--muted);text-decoration:none}
+nav a:hover{color:var(--teal)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start;padding:72px 0 64px}
+.eyebrow{font-family:var(--mono);font-size:.82rem;color:var(--clay);margin:0 0 16px}
+h1{font:400 clamp(2.3rem,5vw,3.5rem)/1.1 var(--serif);letter-spacing:-.015em;margin:0 0 20px;text-wrap:balance}
+.lead{font-size:1.1rem;color:var(--muted);margin:0 0 28px;max-width:34em}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:11px 20px;border-radius:4px;border:1px solid var(--teal);font:500 .95rem var(--sans);cursor:pointer;text-decoration:none;background:none;color:var(--teal)}
+.btn.solid{background:var(--teal);color:var(--paper)}
+
+/* indicator table */
+.itt{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.itt table{width:100%;border-collapse:collapse}
+.itt caption{text-align:left;padding:13px 18px;font-family:var(--mono);font-size:.76rem;color:var(--muted);border-bottom:1px solid var(--line);background:var(--tint)}
+.itt td{padding:12px 18px;border-bottom:1px solid var(--line);vertical-align:baseline}
+.itt tr:last-child td{border-bottom:0}
+.itt .v{font:400 1.75rem/1 var(--serif);color:var(--teal);white-space:nowrap;width:1%;padding-right:6px}
+.itt .k{font-size:.93rem;line-height:1.35}
+.itt small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+
+/* sections */
+section{padding:60px 0;border-top:1px solid var(--line)}
+.head{display:flex;align-items:baseline;gap:14px;margin:0 0 30px}
+.head span{font-family:var(--mono);font-size:.82rem;color:var(--clay)}
+h2{font:400 2rem/1.15 var(--serif);margin:0;letter-spacing:-.01em}
+h3{font:600 1.05rem/1.35 var(--sans);margin:0}
+.two{display:grid;grid-template-columns:1.25fr 1fr;gap:48px}
+.prose p{margin:0 0 14px}
+.label{font-family:var(--mono);font-size:.76rem;color:var(--muted);margin:0 0 12px}
+.tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;margin:0;padding:0}
+.tags li{background:var(--tint);padding:4px 11px;border-radius:3px;font-size:.87rem}
+
+/* timeline */
+.gantt{margin:0 0 40px}
+.g-row{display:grid;grid-template-columns:130px 1fr;gap:12px;align-items:center;height:26px}
+.g-name{font-size:.84rem;color:var(--muted);white-space:nowrap}
+.g-track{position:relative;height:12px;background:repeating-linear-gradient(90deg,transparent 0 calc(100%/var(--years,5) - 1px),var(--line) calc(100%/var(--years,5) - 1px) calc(100%/var(--years,5)))}
+.g-bar{position:absolute;top:0;bottom:0;background:var(--teal);min-width:4px;border-radius:2px}
+.g-bar.now{background:var(--clay)}
+.g-axis{display:grid;grid-template-columns:130px 1fr;gap:12px;margin-top:6px}
+.g-ticks{position:relative;height:18px;color:var(--muted)}
+.g-ticks span{position:absolute;top:0}
+
+.job{display:grid;grid-template-columns:190px 1fr;gap:24px;padding:24px 0;border-top:1px solid var(--line)}
+.job:first-of-type{border-top:0}
+.job .when{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:3px}
+.job .org{color:var(--muted);margin:2px 0 10px;font-size:.96rem}
+.job ul{margin:0;padding-left:18px}
+.job li{margin-bottom:6px}
+
+/* projects */
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:20px}
+.card .sector{font-family:var(--mono);font-size:.74rem;color:var(--clay);margin:0 0 8px}
+.card h3{margin-bottom:6px}
+.card p{margin:0;color:var(--muted);font-size:.93rem;line-height:1.5}
+
+.list{list-style:none;margin:0;padding:0}
+.list li{padding:15px 0;border-top:1px solid var(--line)}
+.list li:first-child{border-top:0;padding-top:0}
+.list p{margin:3px 0 0;color:var(--muted);font-size:.93rem;line-height:1.5}
+
+/* contact */
+#contact h2{font-size:clamp(1.8rem,4vw,2.5rem);margin-bottom:12px}
+#contact p{color:var(--muted);max-width:36em}
+footer{border-top:1px solid var(--line);padding:22px 0;color:var(--muted);font-size:.85rem}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr;gap:36px;padding:44px 0}
+  .two{grid-template-columns:1fr;gap:32px}
+  .grid{grid-template-columns:1fr}
+  nav a:not(:last-child){display:none}
+  .job{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:480px){
+  body{font-size:16px}
+  .wrap{padding:0 16px}
+  .g-row,.g-axis{grid-template-columns:62px 1fr;gap:8px}
+  .g-name{font-size:.76rem}
+  section{padding:44px 0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{
+  :root{--paper:#fff;--card:#fff;--ink:#000;--muted:#333;--line:#bbb;--teal:#0f5c5a;--clay:#0f5c5a;--tint:#eee}
+  header,.actions,.gantt,footer{display:none}
+  body{font-size:11pt}
+  .hero{grid-template-columns:1fr;padding:0 0 16px;gap:16px}
+  section{padding:14px 0}
+  .job,.card,.list li{break-inside:avoid}
+  a{text-decoration:none}
+}
+</style>
 </head>
-<body data-page="home">
-<header id="site-header" class="site-header"></header>
-<main>
-  <section class="hero container">
-    <div class="hero-grid">
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">Rafi Al Imran</a>
+    <nav aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap" id="top">
+
+  <!-- ========== TOP OF PAGE ========== -->
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Humanitarian MEAL · Cox's Bazar, Bangladesh</p>
+      <h1>I check that what a programme reports is what really happened.</h1>
+      <p class="lead">I am a MEAL Officer at Friends In Village Development Bangladesh (FIVDB). I monitor education work in the refugee camps and host community of Cox's Bazar, and turn field data into clear, accurate reports.</p>
+      <div class="actions">
+        <a class="btn solid" href="mailto:rafialimran@gmail.com">Email me</a>
+        <button class="btn" type="button" onclick="window.print()">Save as PDF</button>
+      </div>
+    </div>
+
+    <div class="itt">
+      <table>
+        <caption>Indicator tracking table · career to date</caption>
+        <tr><td class="v">7,000+</td><td class="k">learners in the education work I monitor<small>FIVDB, 2026 to present</small></td></tr>
+        <tr><td class="v">70+</td><td class="k">Learning Centres<small>Camps 2E, 11, 15, 22 and host community</small></td></tr>
+        <tr><td class="v">8</td><td class="k">refugee camps worked across<small>2E, 03, 04, 11, 12, 15, 19, 22</small></td></tr>
+        <tr><td class="v">3</td><td class="k">grants in monthly narrative reports<small>Gender, protection, livelihoods · Oxfam</small></td></tr>
+        <tr><td class="v">120,000</td><td class="k">respondents in a pre-election survey<small>300 constituencies · five-person data team</small></td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="head"><span>01</span><h2>About</h2></div>
+    <div class="two">
+      <div class="prose">
+        <p>I have nearly four years of combined MEAL and research experience in Cox's Bazar, across IRC-funded education programming and Oxfam-funded, DFAT-supported gender, protection and livelihoods work.</p>
+        <p>My work covers field monitoring, baseline, midline and endline surveys, on-distribution and post-distribution monitoring, price monitoring, beneficiary selection, indicator tracking, data quality checks, beneficiary databases and multi-grant reporting.</p>
+        <p>I hold BSS and MSS degrees in Criminology from the University of Dhaka. I care about ethical data, community accountability and steady improvement in programme quality.</p>
+      </div>
       <div>
-        <div class="eyebrow">Rafi Al Imran · Cox's Bazar, Bangladesh</div>
-        <h1>Turning data into <em>evidence</em>. Evidence into <em>learning</em>. Learning into <em>impact</em>.</h1>
-        <div class="type-line"><span id="typeTarget"></span><span class="type-caret"></span></div>
-        <p class="lead" id="heroTag"></p>
-        <div class="hero-cta">
-          <a class="btn btn-primary" href="cv.html">Download CV</a>
-          <a class="btn btn-navy" href="projects.html">View My Work</a>
-          <a class="btn btn-ghost" href="contact.html">Contact Me</a>
-        </div>
-        <ul class="pipeline" id="pipeline" aria-label="Data to impact pipeline"></ul>
-      </div>
-      <div class="hero-card reveal in" aria-hidden="true">
-        <span class="mono">Field monitoring · live view</span>
-        <svg class="spark" viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <polyline points="0,95 40,88 80,80 120,84 160,66 200,58 240,48 280,40 320,28" stroke="var(--green)" stroke-width="2.5"/>
-          <polyline points="0,105 40,102 80,96 120,92 160,86 200,84 240,76 280,72 320,64" stroke="var(--navy)" stroke-width="2" stroke-dasharray="5 5" opacity=".6"/>
-          <circle cx="320" cy="28" r="4" fill="var(--green)"/>
-        </svg>
-        <div class="fig">
-          <div><b>86%</b><span>attendance</span></div>
-          <div><b>72</b><span>centres</span></div>
-          <div><b>94%</b><span>CFRM resolved</span></div>
-        </div>
+        <p class="label">Core competencies</p>
+        <ul class="tags">
+          <li>Indicator and 5W reporting</li>
+          <li>Data quality checks and validation</li>
+          <li>Beneficiary and learner databases</li>
+          <li>Field monitoring and verification</li>
+          <li>Surveys and assessments</li>
+          <li>Quantitative and qualitative data</li>
+          <li>Donor and narrative reporting</li>
+          <li>Feedback and response</li>
+          <li>Research and analysis</li>
+          <li>Knowledge management</li>
+          <li>Power BI</li>
+          <li>Excel dashboards</li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <section class="section-tight container">
-    <div class="stats" id="statsGrid"></div>
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience">
+    <div class="head"><span>02</span><h2>Experience</h2></div>
+
+    <div class="gantt" aria-hidden="true">
+      <div class="g-row"><div class="g-name">FIVDB</div><div class="g-track"><div class="g-bar now" data-s="2026-07" data-e="now"></div></div></div>
+      <div class="g-row"><div class="g-name">Mukti</div><div class="g-track"><div class="g-bar" data-s="2025-02" data-e="2026-06"></div></div></div>
+      <div class="g-row"><div class="g-name">BISR</div><div class="g-track"><div class="g-bar" data-s="2024-12" data-e="2025-02"></div></div></div>
+      <div class="g-row"><div class="g-name">MOSUS</div><div class="g-track"><div class="g-bar" data-s="2024-09" data-e="2024-11"></div></div></div>
+      <div class="g-row"><div class="g-name">Edumax</div><div class="g-track"><div class="g-bar" data-s="2022-07" data-e="2024-07"></div></div></div>
+      <div class="g-axis"><div></div><div class="g-ticks mono"></div></div>
+    </div>
+
+    <article class="job">
+      <div class="when">Jul 2026 – Present</div>
+      <div>
+        <h3>MEAL Officer</h3>
+        <p class="org">Friends In Village Development Bangladesh (FIVDB), Ukhiya, Cox's Bazar</p>
+        <ul>
+          <li>Coordinate MEAL for education programming across Camps 2E, 11, 15 and 22 and host-community areas, including monthly attendance, quality benchmark, unique-client and volunteer-performance reporting.</li>
+          <li>Support monitoring and reporting for education work serving 7,000+ learners through 70+ Learning Centres.</li>
+          <li>Contribute to monitoring across four individually funded and co-financed Basic Literacy and Numeracy projects under the Education Cannot Wait initiative.</li>
+          <li>Collect, validate, analyse and report programme data using project monitoring tools and databases.</li>
+          <li>Support field monitoring, data quality assessments and verification of evidence against organisational and donor requirements.</li>
+          <li>Prepare progress reports and data summaries so programme teams can review performance.</li>
+          <li>Work with programme, education and documentation colleagues on accountability and learning.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">Feb 2025 – Jun 2026</div>
+      <div>
+        <h3>MEAL and Documentation Officer</h3>
+        <p class="org">Mukti, Cox's Bazar</p>
+        <ul>
+          <li>Coordinated MEAL reporting and data follow-up for Oxfam in Bangladesh, preparing monthly narrative reports across three grants in gender, protection and livelihoods.</li>
+          <li>Prepared monthly 5W reports and Indicator Tracking Tables, and supported baseline, midline and endline data collection through surveys, interviews, focus groups and direct observation.</li>
+          <li>Analysed monitoring information from Camps 03, 04, 12, 19 and 22 to find trends, gaps and lessons.</li>
+          <li>Worked with programme and partner teams to verify data, validate findings and triangulate information.</li>
+          <li>Supported community feedback and response, applying ethical, protection and safety standards.</li>
+          <li>Maintained field records, photographs, reports, case stories and success narratives.</li>
+          <li>Served as Communication Focal Point for Oxfam's DFAT-funded Centrality of Protection in Protracted Crisis consortium, coordinating with DSK, Prottashi and Mukti.</li>
+          <li>Produced more than three print, digital and audiovisual knowledge products per quarter.</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">Dec 2024 – Feb 2025</div>
+      <div>
+        <h3>Research Intern</h3>
+        <p class="org">Bangladesh Institute of Social Research (BISR) Trust, Dhaka</p>
+        <ul><li>Supported expressions of interest and research proposals, and searched for funding sources.</li></ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">Sep 2024 – Nov 2024</div>
+      <div>
+        <h3>Data Analyst</h3>
+        <p class="org">Manobadhikar O Samaj Unnayan Sangstha (MOSUS), Bangladesh</p>
+        <ul><li>One of five data-analysis team members for a human-rights organisation, working on a pre-election survey of 120,000 respondents across 300 constituencies.</li></ul>
+      </div>
+    </article>
+
+    <article class="job">
+      <div class="when">Jul 2022 – Jul 2024</div>
+      <div>
+        <h3>Research and Development Executive</h3>
+        <p class="org">Edumax Consultancy, Dhaka</p>
+        <ul><li>Researched higher-study options from secondary sources, contacted foreign universities and helped bring in business while the firm started up as an education consultancy.</li></ul>
+      </div>
+    </article>
   </section>
 
-  <section class="section container">
-    <div class="section-head">
-      <div class="eyebrow">Selected work</div>
-      <h2>Programmes where evidence made the difference</h2>
-      <p class="lead">MEAL systems, documentation and research across the Rohingya refugee response and beyond.</p>
+  <!-- ========== PROJECTS ========== -->
+  <section id="projects">
+    <div class="head"><span>03</span><h2>Selected projects</h2></div>
+    <div class="grid">
+      <article class="card">
+        <p class="sector">Education · IRC ECHO</p>
+        <h3>Enhancing the well-being of refugees and underprivileged host communities in Cox's Bazar</h3>
+        <p>Inclusive and complementary protection, education, health and advocacy interventions.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Education · IRC DFAT</p>
+        <h3>Protection-Centred and Locally Driven Response for Rohingya Refugees in Cox's Bazar</h3>
+        <p>Education programming under a protection-centred response.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Education · EO_UR Appeal Fund</p>
+        <h3>EO_UR Appeal Fund</h3>
+        <p>Education programming for Rohingya refugee children.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Education · MM_TR FIVDB-IRC private fund</p>
+        <h3>Education support for Rohingya Refugee Children in Bangladesh</h3>
+        <p>Part of four projects and 70+ learning centres in Camps 2E, 11, 15, 22 and the host community.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Livelihood</p>
+        <h3>Harvesting Hope: Building Climate-Adaptive Gardening Skills and Knowledge in Cox's Bazar</h3>
+        <p>Supported data collection and documentation in a MEAL role.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Livelihood</p>
+        <h3>Strengthening Livelihood and Increasing Food Security in Rohingya and Host Community in Cox's Bazar (SLFS)</h3>
+        <p>MEAL support for a livelihoods and food security project.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Gender · Protection · Livelihood</p>
+        <h3>Centrality of Protection in Protracted Crises (CPPC)</h3>
+        <p>Supported reporting, consortium partner coordination, publication, documentation and communication.</p>
+      </article>
+      <article class="card">
+        <p class="sector">Protection</p>
+        <h3>Our Light, Our Protection, Our Responsibility</h3>
+        <p>Prepared workshop reports, presentations and closing reports, and produced outcome videos and communication materials.</p>
+      </article>
     </div>
-    <div class="grid grid-3" id="featured"></div>
-    <p style="margin-top:2rem"><a class="btn btn-ghost" href="projects.html">All projects →</a></p>
+  </section>
+
+  <!-- ========== PUBLICATIONS ========== -->
+  <section id="publications">
+    <div class="head"><span>04</span><h2>Publications and research</h2></div>
+    <ul class="list">
+      <li><h3><em>Rohingya Folk Tales: Voices of Heritage</em></h3><p>Contributed to this publication at Mukti.</p></li>
+      <li><h3><em>Masum Khwaab</em></h3><p>Contributed to this publication at Mukti.</p></li>
+      <li><h3><em>The Impact of Trade Union Bureaucracy on the Daily Actions: A study on Dhaka Medical College and Hospital</em></h3><p>Research monograph, BSS in Criminology, University of Dhaka.</p></li>
+    </ul>
+  </section>
+
+  <!-- ========== EDUCATION AND TRAINING ========== -->
+  <section id="education">
+    <div class="head"><span>05</span><h2>Education and training</h2></div>
+    <div class="two">
+      <div>
+        <p class="label">Education</p>
+        <ul class="list">
+          <li><h3>Master of Social Science (MSS) in Criminology</h3><p>University of Dhaka · 2021–2022 · EQF Level 7. Advanced research methods, social statistics, qualitative and quantitative data analysis, criminological theory, policy analysis.</p></li>
+          <li><h3>Bachelor of Social Sciences (BSS) in Criminology</h3><p>University of Dhaka · 2018–2021 · EQF Level 6. Social research design, survey methodology, data interpretation and research ethics.</p></li>
+          <li><h3>Higher Secondary School Certificate (Humanities)</h3><p>Hazi Mohammad Mohsin College, Chittagong · 2017</p></li>
+          <li><h3>Secondary School Certificate (Business Studies)</h3><p>Fatehabad Model and Multilateral High School, Chittagong · 2015</p></li>
+        </ul>
+      </div>
+      <div>
+        <p class="label">Training</p>
+        <ul class="list">
+          <li><h3>Advanced MEAL Training · 2026</h3><p>BRAC and Mukti. Advanced Excel, dashboards, Power BI, data visualisation, KPI tracking, DQA and reporting.</p></li>
+          <li><h3>Housing, Land and Property · 2026</h3><p>IRC and UNHCR Protection Sector. Protection mainstreaming, gender and inclusion, referrals, HLP case management.</p></li>
+          <li><h3>MEAL in Emergencies · 2025</h3><p>Save the Children / DisasterReady. Needs assessment, indicators, accountability, evaluation, humanitarian reporting.</p></li>
+          <li><h3>Safeguarding and PSEAH · 2025</h3><p>BESAFE / UNDSS and Mukti. Safeguarding, child protection, complaint mechanisms, ethical conduct.</p></li>
+          <li><h3>Introduction to Monitoring and Evaluation · 2024/2025</h3><p>DisasterReady / IRC. Results-based management, indicators, baseline and endline surveys.</p></li>
+          <li><h3>Research Methodology in Social Research · 2024</h3><p>Ministry of Planning, 30 days. Quantitative, qualitative and mixed methods, and research ethics.</p></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <h2>Let's talk.</h2>
+    <p>Based in Cox's Bazar, Bangladesh. Working languages: English and Chittagonian. References are available on request.</p>
+    <div class="actions">
+      <a class="btn solid" href="mailto:rafialimran@gmail.com">rafialimran@gmail.com</a>
+      <a class="btn" href="https://www.linkedin.com/in/rafi-al-imran-157629328/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://github.com/rafialimran" rel="noopener">GitHub</a>
+    </div>
   </section>
 </main>
-<footer id="site-footer" class="site-footer"></footer>
 
-<script src="assets/js/app.js"></script>
+<footer><div class="wrap">© <span id="yr">2026</span> Rafi Al Imran</div></footer>
+
+<script>
+// Draws the career timeline. To add a job, copy a .g-row line above and change the dates.
+(function(){
+  var m=function(s){var p=s.split('-');return p[0]*12+(p[1]-1)};
+  var now=new Date(), nowM=now.getFullYear()*12+now.getMonth();
+  var y0=2022, start=y0*12, end=(now.getFullYear()+1)*12, span=end-start;
+  document.getElementById('yr').textContent=now.getFullYear();
+  document.querySelectorAll('.g-bar').forEach(function(b){
+    var s=m(b.dataset.s), e=b.dataset.e==='now'?nowM:m(b.dataset.e);
+    b.style.left=((s-start)/span*100)+'%';
+    b.style.width=(Math.max(e-s,1)/span*100)+'%';
+  });
+  var years=span/12, t=document.querySelector('.g-ticks');
+  document.querySelectorAll('.g-track').forEach(function(x){x.style.setProperty('--years',years)});
+  for(var i=0;i<years;i++){var el=document.createElement('span');el.style.left=(i/years*100)+'%';el.textContent=y0+i;t.appendChild(el)}
+})();
+</script>
 </body>
 </html>
